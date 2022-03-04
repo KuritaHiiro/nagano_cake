@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   enum payment_method: {
-    crefit: 0,
+    credit: 0,
     bank: 1,
   }
 

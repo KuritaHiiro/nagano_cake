@@ -3,6 +3,6 @@ class OrderDetail < ApplicationRecord
     no_production: 0,
     production_waiting: 1,
     in_production: 2,
-    completed: 
+    completed: 3,
   }
 end

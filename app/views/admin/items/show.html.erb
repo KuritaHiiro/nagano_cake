@@ -1,5 +1,34 @@
 <h2>商品詳細</h2>
 
+<%= image_tag @item.get_image(200,200) %>
 <table>
-  
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th><%= @item.name %></th>
+    </tr>
+    <tr>
+      <th>商品説明</th>
+      <th><%= @item.introduction %></th>
+    </tr>
+    <tr>
+      <th>ジャンル</th>
+      <th><%= @genres %></th>
+    </tr>
+    <tr>
+      <th>
+        税込価格<br/>
+        (税抜価格)
+      </th>
+      <th><%= @item.price * 1.08 %></th>
+      <th>(<%= @item.price %>)</th>
+    </tr>
+    <tr>
+      <th>販売ステータス</th>
+      <th><%= @item.is_active %></th>
+    </tr>
+    <tr>
+      <th><%= link_to "編集", edit_admin_item_path(@item.id) %></th>
+    </tr>
+  </thead>
 </table>

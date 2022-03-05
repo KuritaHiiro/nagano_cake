@@ -1,0 +1,36 @@
+<h2>商品新規登録</h2>
+
+<table>
+  <thead>
+    <%= form_with model: @item, url: "/admmin/items", method: :post do |f| %>
+    <tr>
+      <th>商品画像</th>
+      <th><%= f.file_field :image, accept: "image/*" %></th>
+    </tr>
+    <tr>
+      <th>商品名</th>
+      <th><%= f.text_field :name, placeholder: "商品名" %></th>
+    </tr>
+    <tr>
+      <th>商品説明</th>
+      <th><%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %></th>
+    </tr>
+    <tr>
+      <th>ジャンル</th>
+      <th><%= f.select :genre_id, ["ケーキ","プリン"] %></th>
+    </tr>
+    <tr>
+      <th>税抜価格</th>
+      <th><%= f.text_field :price, placeholder: "1000" %></th>
+      <th>円</th>
+    </tr>
+    <tr>
+      <th>販売ステータス</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th><%= f.submit "新規登録" %></th>
+    </tr>
+    <% end %>
+  </thead>
+</table>

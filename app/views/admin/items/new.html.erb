@@ -17,7 +17,7 @@
     </tr>
     <tr>
       <th>ジャンル</th>
-      <th><%= f.collection_select(:genre_id,@genres, :id, :name, prompt: "--選択してください--") %></th>
+      <th><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "--選択してください--") %></th>
     </tr>
     <tr>
       <th>税抜価格</th>
@@ -26,10 +26,8 @@
     </tr>
     <tr>
       <th>販売ステータス</th>
-      <th><%= f.radio_button :is_active, true %></th>
-      <th><%= f.label :is_active, "販売中" %></th>
-      <th><%= f.radio_button :is_active, false %></th>
-      <th><%= f.label :is_active, "販売停止中" %></th>
+      <th><label><%= f.radio_button :is_active, true %>販売中</label></th>
+      <th><label><%= f.radio_button :is_active, false %>販売停止中</label></th>
     </tr>
     <tr>
       <th><%= f.submit "新規登録" %></th>

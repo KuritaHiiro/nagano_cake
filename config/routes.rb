@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "homes#top"
+  get "/about" => "homes#about"
 
   #管理者用
   #URL/admin/sign_in
@@ -9,7 +10,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
-    get "/" => "admin/homes#top"
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show, :update]
+    get "/" => "homes#top"
+
   end
   #顧客用
   #URL/customers/sign_in

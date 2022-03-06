@@ -13,7 +13,7 @@
     </tr>
     <tr>
       <th>ジャンル</th>
-      <th><%= @genres %></th>
+      <th><%= @genre.name %></th>
     </tr>
     <tr>
       <th>
@@ -21,11 +21,17 @@
         (税抜価格)
       </th>
       <th><%= @item.price * 1.08 %></th>
-      <th>(<%= @item.price %>)</th>
+      <th>(<%= @item.price %>)円</th>
     </tr>
     <tr>
       <th>販売ステータス</th>
-      <th><%= @item.is_active %></th>
+      <th>
+        <% if @item.is_active %>
+          販売中
+        <% else %>
+          販売停止中
+        <% end %>
+      </th>
     </tr>
     <tr>
       <th><%= link_to "編集", edit_admin_item_path(@item.id) %></th>

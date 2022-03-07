@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: "homes#top"
-  get "/about" => "homes#about"
+  root to: "public/homes#top"
+  get "/about" => "public/homes#about"
 
   #管理者用
   #URL/admin/sign_in
@@ -21,5 +21,7 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
+  resources :customers, only: [:show, :edit, :update, :create]
+  patch "/customers/withdrawal" => "public/customers#withdeawal"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

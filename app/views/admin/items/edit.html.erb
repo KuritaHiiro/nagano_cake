@@ -8,11 +8,11 @@
     </tr>
     <tr>
       <th>商品名</th>
-      <th><%= f.text_field :name %></th>
+      <th><%= f.text_field :name, class: "from-control" %></th>
     </tr>
     <tr>
       <th>商品説明</th>
-      <th><%= f.text_area :introduction %></th>
+      <th><%= f.text_area :introduction, class: "from-control" %></th>
     </tr>
     <tr>
       <th>ジャンル</th>
@@ -20,7 +20,7 @@
     </tr>
     <tr>
       <th>税抜価格</th>
-      <th><%= f.text_field :price %></th>
+      <th><%= f.text_field :price, class: "from-control" %></th>
     </tr>
     <tr>
       <th>販売ステータス</th>
@@ -28,7 +28,7 @@
       <th><label><%= f.radio_button :is_active, false %>販売停止中</label></th>
     </tr>
     <tr>
-      <th><%= f.submit "変更を保存" %></th>
+      <th><%= f.submit "変更を保存", class: "btn btn-success" %></th>
     </tr>
   </thead>
 </table>

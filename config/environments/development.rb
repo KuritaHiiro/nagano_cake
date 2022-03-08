@@ -53,4 +53,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.active_storage.service = :local
   config.active_job.queue_adapter = :inline
+  config.hosts << "6c321d0a9b3e40fb8802f68ea93c0aa1.vfs.cloud9.us-east-1.amazonaws.com"
 end

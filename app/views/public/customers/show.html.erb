@@ -1,43 +1,57 @@
-<h2>マイページ</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-2 m-3">
+      <h2 class="bg-light">マイページ</h2>
+    </div>
+  </div>
+</div>
+
 
 <table>
   <tr>
     <th>登録情報</th>
-    <td><%= link_to "編集する", edit_customers_path(current_customer) %></td>
+    <td><%= link_to "編集する", edit_customers_path(current_customer), class: "btn btn-success m-2" %></td>
   </tr>
 </table>
 
-<table>
-  <tr>
-    <th>氏名</th>
-    <td><%= current_customer.last_name %><%= current_customer.first_name %></td>
-  </tr>
-  <tr>
-    <th>カナ</th>
-    <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
-  </tr>
-  <tr>
-    <th>郵便番号</th>
-    <td><%= @customer.postal_code %></td>
-  </tr>
-  <tr>
-    <th>住所</th>
-    <td><%= @customer.address %></td>
-  </tr>
-  <tr>
-    <th>電話番号</th>
-    <td><%= @customer.telephone_number %></td>
-  </tr>
-  <tr>
-    <th>メールアドレス</th>
-    <td><%= @customer.email %></td>
-  </tr>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <table class="table table-bordered">
+        <tr>
+          <th>氏名</th>
+          <td><%= current_customer.last_name %><%= current_customer.first_name %></td>
+        </tr>
+        <tr>
+          <th>カナ</th>
+          <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <th>郵便番号</th>
+          <td><%= @customer.postal_code %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @customer.telephone_number %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @customer.email %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
 
 <table>
   <tr>
-    <th>配送先一覧</th>
-    <td><%= link_to "一覧を見る", addresses_path(@addresses) %></td>
+    <th>配送先</th>
+    <td></td>
+    <td><%= link_to "一覧を見る", addresses_path(@addresses), class: "btn btn-primary" %></td>
   </tr>
 </table>
 

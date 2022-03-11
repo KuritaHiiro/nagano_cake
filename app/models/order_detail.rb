@@ -5,4 +5,6 @@ class OrderDetail < ApplicationRecord
     in_production: 2,
     completed: 3,
   }
+  
+  belongs_to :order
 end

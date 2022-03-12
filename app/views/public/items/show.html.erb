@@ -13,7 +13,7 @@
           <td><%= @item.introduction %></td>
         </tr>
         <tr>
-          <td>¥<%= @item.price * 1.1.floor %>(税込)</td>
+          <td>¥<%= (@item.price * 1.1).floor %>(税込)</td>
           <td>
             <% if @item.is_active %>
               <div class="text-success">販売中</div>
@@ -25,10 +25,11 @@
         <tr>
           <td>数量を選択して下さい。</td>
         </tr>
-        <%= form_with model: @cart_items do |f| %>
+        <%= form_with model: @cart_item, url: cart_items_path do |f| %>
         <tr>
-          <td><%= f.hidden_field :item_id, :value
+          <td><%= f.hidden_field :item_id, :value => @item.id %></td>
           <td><%= f.select :amount, *[1..10] %></td>
+          <td><%= f.submit "カートに送る" %></td>
         </tr>
         <% end %>
       </table>

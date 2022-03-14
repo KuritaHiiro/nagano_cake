@@ -20,15 +20,15 @@ Rails.application.routes.draw do
   #URL/customers/sign_in
   scope module: :public do
     resource :customers, only: [:show, :edit, :update]
+    delete "/cart_items/empty" => "cart_items#empty", as: "empty"
+    get "orders/confirm" => "orders#confirm", as: "confirm"
+    get "orders/complete" => "orders#complete",as: "complete"
+    get "/customers/unsubscribe" => "customers#unsubscribe", as: "unsubscribe"
+    patch "/customers/withdrawal" => "customers#withdrawal", as: "withdrawal"
     resources :addresses, only: [:create, :index, :edit, :update, :destroy]
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :update, :destroy, :create]
     resources :orders, only: [:new, :create, :index, :show]
-    get "/customers/unsubscribe" => "customers#unsubscribe", as: "unsubscribe"
-    patch "/customers/withdrawal" => "customers#withdrawal", as: "withdrawal"
-    delete "/cart_items/empty" => "cart_items#empty", as: "empty"
-    get "orders/confirm" => "orders#confirm", as: "confirm"
-    get "orders/complete" => "orders#complete",as: "complete"
   end
 
   devise_for :customers, skip: [:passwords], controllers: {

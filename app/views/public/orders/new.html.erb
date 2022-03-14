@@ -7,7 +7,8 @@
   <div class="row">
     <div class="col-9">
       <table>
-        <%= form_with model: @order do |f| %>
+        <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+        <!--%= hidden_field :customer_id, :value => @customer.id %>-->
         <tr>
           <th>お支払い方法</th>
         </tr>
@@ -38,16 +39,16 @@
           <td><%= f.radio_button :address, Address.new %>新しいお届け先</td>
         </tr>
         <tr>
-          <td>郵便番号(ハイフンなし)<%= f.text_field :postal_code, class: "form_control" %></td>
+          <td>郵便番号(ハイフンなし)<%= f.text_field :postal_code, class: "form-control" %></td>
         </tr>
         <tr>
-          <td>住所<%= f.text_field :address, class: "form_control" %></td>
+          <td>住所<%= f.text_field :address, class: "form-control" %></td>
         </tr>
         <tr>
-          <td>宛名<%= f.text_field :name, class: "form_control" %></td>
+          <td>宛名<%= f.text_field :name, class: "form-control" %></td>
         </tr>
         <tr>
-          <td><%= link_to "確認画面へ進む", confirm_path, class: "btn btn-primary" %></td>
+          <td><%= f.submit "確認画面へ進む", class: "btn btn-primary" %></td>
         </tr>
         <% end %>
       </table>

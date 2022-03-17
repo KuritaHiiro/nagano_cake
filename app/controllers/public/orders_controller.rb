@@ -34,6 +34,15 @@ class Public::OrdersController < ApplicationController
     @customer = current_customer
     @cart_items = current_customer.cart_items
     @order.save
+    @cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new
+      @order_detail.item_id = cart_item.item_id
+      @order_detail.order_id = @order.id
+      @order_detail.price_tax = @order.total_payment
+      @order_detail.amount = cart_item.amount
+      #@order_detail.production_status = @order.status
+    end
+    @cart_items.destroy_all
     redirect_to complete_path
   end
 
@@ -42,10 +51,15 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders
+    @cart_items = current_customer.cart_items
+    @order_detail = OrderDetail.new
+    #@order_detail.item_id = @cart_items.item_id
   end
 
   def show
-
+    @order = Order.find(params[:id])
+    @cart_items = current_customer.cart_items
+    @sum = 0
   end
 
   private

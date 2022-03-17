@@ -2,25 +2,46 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    #@customer = Customer.find(params[:id])
   end
 
   def confirm
+    #情報入力画面,postメソッドで送る内容を保存するもの
+
+    if params[:order][:select_address] == "0"
+      @order = Order.new(order_params)
+      @order.postal_code = current_customer.postal_code
+      @order.address = current_customer.address
+      @order.name = current_customer.first_name + current_customer.last_name
+    elsif params[:order][:select_address] == "1"
+      @order = Order.new(order_params)
+      @address = Address.find(params[:order][:address_id])
+      @order.postal_code = @address.postal_code
+      @order.address = @address.address
+      @order.name = @address.name
+    elsif params[:order][:select_address] == "2"
+      @order = Order.new(order_params)
+    end
+    #@customer = current_customer
+    #注文情報確認画面で表示する内容
+    @customer = current_customer
     @cart_items = current_customer.cart_items
-    @order = current_customer.orders
+    @sum = 0
+    #@orders = current_customer.orders
   end
 
   def create
     @order = Order.new(order_params)
+    @customer = current_customer
+    @cart_items = current_customer.cart_items
     @order.save
-    redirect_to confirm_path
+    redirect_to complete_path
   end
 
   def complete
   end
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders
   end
 
   def show
@@ -30,7 +51,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :address)
+    params.require(:order).permit(:payment_method, :address, :postal_code, :name, :postage, :total_payment, :customer_id)
   end
 
 end

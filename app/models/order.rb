@@ -14,4 +14,20 @@ class Order < ApplicationRecord
 
   belongs_to :customer
   has_many :order_details, dependent: :destroy
+
+  def postage
+    800
+  end
+
+  def with_tax_price
+    (price * 1.1).floor
+  end
+
+  def subtotal
+    item.with_tax_price * amount
+  end
+
+  #def total_payment
+    #(@sum.to_i + postage.to_i)
+  #end
 end

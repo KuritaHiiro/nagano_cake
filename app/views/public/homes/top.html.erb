@@ -21,7 +21,7 @@
           <tr>
             <td>
               <%= link_to item_path(item.id) do %>
-                <%= image_tag item.get_image, size: "200x200" %>
+                <%= image_tag item.get_image, size: "320x180" %>
               <% end %>
             </td>
           </tr>
@@ -29,7 +29,7 @@
             <td><%= item.name %></td>
           </tr>
           <tr>
-            <td>¥<%= item.price * 1.08 %></td>
+            <td>¥<%= (item.price * 1.1).floor %></td>
           </tr>
           <% end %>
         </tbody>

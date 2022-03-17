@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resource :customers, only: [:show, :edit, :update]
     delete "/cart_items/empty" => "cart_items#empty", as: "empty"
-    get "orders/confirm" => "orders#confirm", as: "confirm"
+    post "orders/confirm" => "orders#confirm", as: "confirm"
     get "orders/complete" => "orders#complete",as: "complete"
     get "/customers/unsubscribe" => "customers#unsubscribe", as: "unsubscribe"
     patch "/customers/withdrawal" => "customers#withdrawal", as: "withdrawal"

@@ -1,4 +1,4 @@
-　<h2 class="bg-secondary m-4">注文履歴詳細</h2>
+　<h2 class="bg-light m-4">注文履歴詳細</h2>
 
 <div class="container">
   <div class="row align-items-start">
@@ -62,11 +62,11 @@
         </thead>
         <tbody>
             <!--order_detailモデルから取り出すのではないだろうか？-->
-        <% @cart_items.each do |cart_item| %>
+        <% @order_details.each do |order_detail| %>
           <tr>
-            <td><%= cart_item.item.name %></td>
-            <td><%= cart_item.item.with_tax_price %></td>
-            <td><%= cart_item.item.amount %></td>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.price_tax %></td>
+            <td><%= order_detail.amount %></td>
             <td></td>
           </tr>
         <% end %>

@@ -15,8 +15,14 @@
         <tbody>
           <% @orders.each do |order| %>
           <tr>
-            <td><%= order.created_at %></td>
-            <td></td>
+            <td><%= link_to order.created_at, admin_order_path(order.id) %></td>
+            <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
+            <td>
+              <% order.order_details.each do |order_detail| %>
+                <%= order_detail.amount %>
+              <% end %>
+            </td>
+            <td><%= order.status_i18n %></td>
           </tr>
           <% end %>
         </tbody>

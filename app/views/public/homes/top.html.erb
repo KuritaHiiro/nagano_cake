@@ -1,44 +1,37 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-3"></div>
-    <div class="col-lg-8">
+    <div class="col">
       <table>
         <thead>
           <tr>
             <td>
+            <h2>
               ようこそ、ながのCAKEへ!<br>
               このサイトは、ケーキ販売のECサイトになります。<br>
               会員でない方も商品の閲覧はできますが、<br>
               購入には会員登録が必要になります。
+            </h2>
             </td>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th><h2>新着商品</h2></th>
-          </tr>
-          <% @items.each do |item| %>
-          <tr>
-            <td>
-              <%= link_to item_path(item.id) do %>
-                <%= image_tag item.get_image, size: "320x180" %>
-              <% end %>
-            </td>
-          </tr>
-          <tr>
-            <td><%= item.name %></td>
-          </tr>
-          <tr>
-            <td>¥<%= (item.price * 1.1).floor %></td>
-          </tr>
-          <% end %>
-        </tbody>
-        <tfooter>
-          <tr>
-            <td><%= link_to "全ての商品を見る >", items_path %></td>
-          </tr>
-        </tfooter>
       </table>
+    </div>
+  </div>
+  <h2>新着商品</h2>
+  <div class="row">
+    <% @items.each do |item| %>
+    <div class="col">
+      <%= link_to item_path(item.id) do %>
+        <%= image_tag item.get_image, size: "160x90" %>
+      <% end %><br>
+      <%= item.name %><br>
+      ¥<%= (item.price * 1.1).floor %><br>
+    </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= link_to "全ての商品を見る >", items_path %>
     </div>
   </div>
 </div>

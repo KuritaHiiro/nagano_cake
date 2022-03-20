@@ -1,4 +1,4 @@
-<h2 class="d-inline-flex p-2 bd-highlight">ジャンル一覧・追加</h2>
+<h2 class="d-inline-flex p-2 bd-light">ジャンル一覧・追加</h2>
 
 <!--ジャンルの新規登録-->
 <div class="container">
@@ -10,9 +10,9 @@
           <tr>
             <th>ジャンル名</th>
             <td></td>
-            <th><%= f.text_field :name, placeholder: "ジャンル名", class: "form-control" %></th>
+            <th><%= f.text_field :name, placeholder: "ジャンル名", class: "form-control m-5" %></th>
             <td></td>
-            <th><%= f.submit "新規投稿", class: "btn btn-success" %></th>
+            <th><%= f.submit "新規投稿", class: "btn btn-success m-3" %></th>
           </tr>
         <% end %>
         </thead>

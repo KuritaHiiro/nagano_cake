@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:show, :update]
     get "/" => "homes#top"
+    patch "/admin/order_details/:id" => "order_details#update", as: "order_details"
   end
 
   #顧客用

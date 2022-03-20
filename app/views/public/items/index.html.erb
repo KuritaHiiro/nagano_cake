@@ -2,16 +2,15 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-3"></div>
-    <div class="col-log-8">
-      <% @items.each do |item| %>
+  <% @items.each do |item| %>
+    <div class="col">
         <%= link_to item_path(item.id) do %>
           <%= image_tag item.get_image, size: "320x180" %>
         <% end %>
         <p><%= item.name %></p>
         <p>¥<%= item.price * 1.1.floor %></p>
-      <% end %>
     </div>
+  <% end %>
   </div>
 </div>
 

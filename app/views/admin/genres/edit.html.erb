@@ -1,12 +1,12 @@
 <h2>ジャンル編集</h2>
 
-<table>
+<table class="m-5">
   <thead>
     <%= form_with model: @genre, url: admin_genre_path(@genre), method: :patch do |f| %>
     <tr>
       <th>ジャンル名</th>
-      <th><%= f.text_field :name, class: "form-control" %></th>
-      <th><%= f.submit "変更を保存", class: "btn btn-success" %></th>
+      <th><%= f.text_field :name, class: "form-control m-4" %></th>
+      <th><%= f.submit "変更を保存", class: "btn btn-success m-4" %></th>
     </tr>
     <% end %>
   </thead>

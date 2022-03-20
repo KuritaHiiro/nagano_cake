@@ -1,15 +1,17 @@
 <h2>会員一覧</h2>
 <div class="container">
-  <div class="row align-items-center">
+  <div class="row">
     <div class="col">
       <table class="table">
-        <thead class="table-muted">
+        <thead class="table-secondary">
           <tr>
             <th>会員ID</th>
             <th>氏名</th>
             <th>メールアドレス</th>
             <th>ステータス</th>
           </tr>
+        </thead>
+        <tbody>
           <% @customers.each do |customer| %>
           <tr>
             <td><%= customer.id %></td>
@@ -24,7 +26,7 @@
             </td>
           </tr>
           <% end %>
-        </thead>
+        </tbody>
       </table>
     </div>
   </div>

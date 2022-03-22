@@ -24,8 +24,8 @@
         <tr>
           <td>
             <%= f.radio_button :select_address, 0 %>ご自身の住所<br>
-            〒<%= f.label :postal_code, @order.postal_code %><%= f.label :address, @order.address %><br>
-            <%= f.label :name, @order.name %>
+            〒<%= f.label :postal_code, @customer.postal_code %><%= f.label :address, @customer.address %><br>
+            <%= f.label :name, @customer.last_name %><%= f.label :name, @customer.first_name %>
 
           </td>
         </tr>

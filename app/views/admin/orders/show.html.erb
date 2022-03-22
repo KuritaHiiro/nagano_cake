@@ -1,32 +1,59 @@
-<h2>注文履歴詳細</h2>
-
-<table>
-    <tr>
-      <th>購入者</th>
-      <th><%= link_to @order.customer.first_name, admin_customer_path(@customer.id) %></th>
-    </tr>
-    <tr>
-      <th>注文日</th>
-      <th><%= @order.created_at %></th>
-    </tr>
-    <tr>
-      <th>配送先</th>
-      <th>〒<%= @order.postal_code %><%= @order.address %><br>
-          <%= @order.name %>
-      </th>
-    </tr>
-    <tr>
-      <th>支払方法</th>
-      <th><%= @order.payment_method_i18n %></th>
-    </tr>
-    <tr>
-      <th>注文ステータス</th>
-      <th><%= @order.status_i18n %></th>
-    </tr>
-</table>
 <div class="container">
+
+  <div class="row m-5">
+    <div class="col">
+      <h2>注文履歴詳細</h2>
+    </div>
+  </div>
+
   <div class="row">
-    <div class="col-6">
+    <div class="col-3">
+      <p><strong>購入者</strong></p>
+    </div>
+    <div class="col-4">
+      <%= link_to @name, admin_customer_path(@customer.id) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p><strong>注文日</strong></p>
+    </div>
+    <div class="col-4">
+      <%= @order.created_at.strftime('%Y/%m/%d') %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p><strong>配送先</strong></p>
+    </div>
+    <div class="col-4">
+      〒<%= @order.postal_code %><%= @order.address %><br>
+      <%= @order.name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p><strong>支払方法</strong></p>
+    </div>
+    <div class="col-4">
+      <%= @order.payment_method_i18n %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p><strong>注文ステータス</strong></p>
+    </div>
+    <div class="col-4">
+      <%= @order.status_i18n %>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-8">
       <table class="table">
         <thead class="table-secondary">
           <tr>
@@ -55,15 +82,15 @@
       <table>
         <tr>
           <th>商品合計</th>
-          <td><%= @sum %></td>
+          <td><%= @sum %>円</td>
         </tr>
         <tr>
           <th>送料</th>
-          <td><%= @order.postage %></td>
+          <td><%= @order.postage %>円</td>
         </tr>
         <tr>
           <th>請求金額合計</th>
-          <td><%= @sum + @order.postage %></td>
+          <th><%= @sum + @order.postage %>円</th>
         </tr>
       </table>
     </div>

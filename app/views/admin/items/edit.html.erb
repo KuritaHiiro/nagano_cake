@@ -1,35 +1,77 @@
-<h2>商品編集</h2>
-<%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
-<table>
-  <thead>
-    <tr>
-      <th>商品画像</th>
-      <th><%= f.file_field :image, accept: "image/*" %></th>
-    </tr>
-    <tr>
-      <th>商品名</th>
-      <th><%= f.text_field :name, class: "from-control" %></th>
-    </tr>
-    <tr>
-      <th>商品説明</th>
-      <th><%= f.text_area :introduction, class: "from-control" %></th>
-    </tr>
-    <tr>
-      <th>ジャンル</th>
-      <th><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "--選択してください--") %></th>
-    </tr>
-    <tr>
-      <th>税抜価格</th>
-      <th><%= f.text_field :price, class: "from-control" %></th>
-    </tr>
-    <tr>
-      <th>販売ステータス</th>
-      <th><label><%= f.radio_button :is_active, true %>販売中</label></th>
-      <th><label><%= f.radio_button :is_active, false %>販売停止中</label></th>
-    </tr>
-    <tr>
-      <th><%= f.submit "変更を保存", class: "btn btn-success" %></th>
-    </tr>
-  </thead>
-</table>
-<% end %>
+<div class="container">
+  <div class="row m-5">
+    <div class="col">
+      <h2>商品編集</h2>
+    </div>
+  </div>
+
+  <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
+  <div class="row">
+    <div class="col-3">
+      <p>商品画像</p>
+    </div>
+    <div class="col-4">
+      <%= f.file_field :image, accept: "image/*" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>商品名</p>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :name, class: "from-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>商品説明</p>
+    </div>
+    <div class="col-4">
+      <%= f.text_area :introduction, class: "from-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>ジャンル</p>
+    </div>
+    <div class="col-4">
+      <%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "--選択してください--") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>税抜価格</p>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :price, class: "from-control" %>
+    </div>
+    <div class="col-2">
+      <p>円</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>販売ステータス</p>
+    </div>
+    <div class="col-2">
+      <label><%= f.radio_button :is_active, true %>販売中</label>
+    </div>
+    <div class="col-2">
+      <label><%= f.radio_button :is_active, false %>販売停止中</label>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3"></div>
+    <div class="col-3">
+      <p><%= f.submit "変更を保存", class: "btn btn-success" %></p>
+    </div>
+  </div>
+
+  <% end %>
+</div>

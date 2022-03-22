@@ -1,9 +1,12 @@
-<h2>商品一覧</h2>
-
 <div class="container">
+  <div class="row m-5">
+    <div class="col">
+      <h2><strong>商品一覧</strong></h2>
+    </div>
+  </div>
   <div class="row">
   <% @items.each do |item| %>
-    <div class="col">
+    <div class="col-4">
         <%= link_to item_path(item.id) do %>
           <%= image_tag item.get_image, size: "320x180" %>
         <% end %>

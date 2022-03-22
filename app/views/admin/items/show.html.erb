@@ -5,32 +5,33 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-4">
       <%= image_tag @item.get_image, size: "320x180", class: "m-5" %>
     </div>
-    <div class="col-lg-8">
+
+    <div class="col-6 m-5">
       <table>
         <thead class="mt-5">
-          <tr>
+          <tr class="m-2">
             <td>商品名</td>
             <td><%= @item.name %></td>
           </tr>
-          <tr>
+          <tr class="m-2">
             <td>商品説明</td>
             <td><%= @item.introduction %></td>
           </tr>
-          <tr>
+          <tr class="m-2">
             <td>ジャンル</td>
             <td><%= @genre.name %></td>
           </tr>
-          <tr>
+          <tr class="m-2">
             <td>
               税込価格<br/>
               (税抜価格)
             </td>
             <td><%= (@item.price * 1.1).floor %>(<%= @item.price %>)円</td>
           </tr>
-          <tr>
+          <tr class="m-2">
             <td>販売ステータス</td>
             <td>
               <% if @item.is_active %>

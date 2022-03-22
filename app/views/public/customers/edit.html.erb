@@ -1,37 +1,79 @@
-<h2>会員情報編集</h2>
+<div class="container-fluid">
+  <div class="row m-5">
+    <div class="col-2">
+      <h2 class="bg-light">会員情報編集</h2>
+    </div>
+  </div>
+  <%= form_with model: @customer, url: customers_path, method: :patch do |f| %>
+  <div class="row m-3">
+    <div class="col-2">
+      <h4>氏名</h4>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :first_name, class: "form-control" %>
+    </div>
+  </div>
 
-<%= form_with model: @customer, url: customers_path, method: :patch do |f| %>
-<table>
-  <tr>
-    <td>氏名</td>
-    <td><%= f.text_field :last_name %></td>
-    <td><%= f.text_field :first_name %></td>
-  </tr>
-  <tr>
-    <td>フリガナ</td>
-    <td><%= f.text_field :last_name_kana %></td>
-    <td><%= f.text_field :first_name_kana %></td>
-  </tr>
-  <tr>
-    <td>郵便番号</td>
-    <td><%= f.text_field :postal_code %></td>
-  </tr>
-  <tr>
-    <td>住所</td>
-    <td><%= f.text_field :address, class: "form-control" %></td>
-  </tr>
-  <tr>
-    <td>電話番号</td>
-    <td><%= f.telephone_field :telephone_number %></td>
-  </tr>
-  <tr>
-    <td>メールアドレス</td>
-    <td><%= f.text_field :email %></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><%= f.submit "編集内容を保存", class: "btn btn-success" %></td>
-    <td><%= link_to "退会する", unsubscribe_path(current_customer), class: "btn btn-danger" %></td>
-  </tr>
-</table>
-<% end %>
+  <div class="row m-3">
+    <div class="col-2">
+      <h4>フリガナ</h4>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :last_name_kana, class: "form-control" %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :first_name_kana, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row m-3">
+    <div class="col-2">
+      <h4>郵便番号</h4>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :postal_code, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row m-3">
+    <div class="col-2">
+      <h4>住所</h4>
+    </div>
+    <div class="col-5">
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row m-3">
+    <div class="col-2">
+      <h4>電話番号</h4>
+    </div>
+    <div class="col-3">
+      <%= f.telephone_field :telephone_number, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row m-3">
+    <div class="col-2">
+      <h4>メールアドレス</h4>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row m-3">
+    <div class="col-4">
+    </div>
+    <div class="col-2">
+      <%= f.submit "編集内容を保存", class: "btn btn-success" %>
+    </div>
+    <div class="col-2">
+      <%= link_to "退会する", unsubscribe_path(current_customer), class: "btn btn-danger" %>
+    </div>
+  </div>
+  <% end %>
+</div>

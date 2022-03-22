@@ -5,6 +5,7 @@ class Admin::OrdersController < ApplicationController
     @order_detail = OrderDetail
     @customer = @order.customer
     @sum = 0
+    @name = @customer.last_name + @customer.first_name
   end
 
   def update

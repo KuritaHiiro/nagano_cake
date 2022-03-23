@@ -6,14 +6,19 @@
   </div>
   <div class="row">
   <% @items.each do |item| %>
-    <div class="col-4">
+    <div class="col-3">
         <%= link_to item_path(item.id) do %>
-          <%= image_tag item.get_image, size: "320x180" %>
+          <%= image_tag item.get_image, size: "240x135" %>
         <% end %>
         <p><%= item.name %></p>
         <p>¥<%= item.price * 1.1.floor %></p>
     </div>
   <% end %>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= paginate @items %>
+    </div>
   </div>
 </div>
 

@@ -27,7 +27,5 @@ class Order < ApplicationRecord
     item.with_tax_price * amount
   end
 
-  #def total_payment
-    #(@sum.to_i + postage.to_i)
-  #end
+
 end

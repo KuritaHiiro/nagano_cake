@@ -54,3 +54,4 @@ gem 'image_processing', '~>1.2'
 gem 'webpacker', '~> 5.0'
 gem 'rails-i18n'
 gem "enum_help"
+gem 'kaminari','~> 1.2.1'

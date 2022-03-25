@@ -1,24 +1,16 @@
-# README
+# ECサイト　ながのCAKE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DMM WEBCAMPの演習で開発しました。
 
-Things you may want to cover:
+###　 フロントエンド
+* HTML & CSS
 
-* Ruby version
+### バッグエンド
+* Ruby on Rails
 
-* System dependencies
+### 詳細設計
+https://docs.google.com/spreadsheets/d/10MtfI7zqY9De04b-a-Dslv8apkqDE_qj/edit?usp=sharing&ouid=105745493118582890248&rtpof=true&sd=true
 
-* Configuration
+### 使用方法デモ動画
+https://drive.google.com/file/d/1g2RkOWEfcqLaWq72OpNZDFm56eZ8LDTd/view?usp=sharing
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
